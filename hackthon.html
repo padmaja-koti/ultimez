@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULTIMEZ - Building The Digital Universe</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Cairo;
+        }
+        
+        .background {
+            background-image: url('Group 5841.png');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background: #1a1a1a18;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        
+        .navbar .login {
+            background: #0056e03e;
+            padding: 10px 10px;
+            border-radius: 5px;
+        }
+        
+        .navbar nav {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, blue, purple);
+            height: 700px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+        
+        .vertical-text {
+            width: 100px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+        
+        .vertical-text p {
+            writing-mode: vertical-rl;
+            /* Vertical text from right to left */
+            transform: rotate(180deg);
+            /* Rotate to read from top to bottom */
+            margin: 0;
+            /* Remove default margin */
+            font-size: medium;
+            opacity: 50%;
+        }
+        
+        img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            right: 10px;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+            /* Ensure content and services are spaced evenly */
+            align-items: flex-start;
+            /* Align items at the top */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .content {
+            flex: 0 0 60%;
+            /* Take up 60% of the container width */
+            padding: 20px;
+        }
+        
+        .services {
+            flex: 0 0 35%;
+            /* Take up 35% of the container width */
+        }
+        
+        .service {
+            display: flex;
+            /* Use flexbox for layout */
+            align-items: center;
+            /* Align items vertically */
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+        }
+        
+        .service svg {
+            width: 100px;
+            height: 80px;
+            margin-right: 15px;
+            margin-top: -20px;
+        }
+        
+        .service .service-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: medium;
+        }
+        
+        .service p {
+            font-family: Cairo;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: left;
+        }
+        
+        .containers {
+            display: flex;
+            max-width: 1000px;
+            margin: auto;
+            background-color: #fff;
+            /*  border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+             */
+            padding: 20px;
+            gap: 20px;
+        }
+        
+        .containers .left,
+        .containers .right {
+            flex: 1;
+        }
+        
+        .left {
+            padding-right: 20px;
+            /*             border-right: 1px solid #ddd;
+ */
+        }
+        
+        .left h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #333;
+        }
+        
+        .left p {
+            font-size: 1.2em;
+            color: #666;
+            margin-top: 20px;
+        }
+        
+        .right {
+            flex: 1;
+            padding-left: 20px;
+            /* Add spacing between left and right columns */
+        }
+        
+        .right form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .input-item {
+            flex: 1;
+        }
+        
+        .input-item input,
+        .input-item textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+        }
+        
+        .input-item input:focus,
+        .input-item textarea:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+        
+        .input-item textarea {
+            resize: none;
+            height: 100px;
+        }
+        
+        .input-item button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        
+        .input-item button:hover {
+            background-color: #0056b3;
+        }
+        
+        .footer {
+            background-color: #003399;
+            /* Adjust the color as needed */
+            color: #ffffff;
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .footer .column {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px;
+            position: relative;
+        }
+        
+        .footer .vertical-line {
+            width: 2px;
+            background-color: #ffffff;
+            /* Adjust the color as needed */
+            margin: 0 20px;
+            height: auto;
+            align-self: stretch;
+            /* This makes the line span the height of the columns */
+        }
+        
+        .footer h3 {
+            margin-top: 0;
+        }
+        
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer li {
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer .bottom-bar {
+            text-align: center;
+            padding-bottom: 20px;
+            border-top: 1px solid #ffffff;
+            margin-bottom: 20px;
+            width: 45%;
+        }
+        
+        .Build {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+        
+        .intro {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png">
+        </div>
+        <nav>
+            <div class="dropdown">
+                <a href="#">Home</a>
+
+            </div>
+            <div class="dropdown">
+                <a href="#">Who we are &#x25BC;</a>
+
+            </div>
+            <div class="dropdown">
+                <a href="#">Solutions &#x25BC;</a>
+
+            </div>
+            <div class="dropdown">
+                <a href="#">Portfolio &#x25BC;</a>
+
+            </div>
+            <div class="dropdown">
+                <a href="#">Case Studies </a>
+
+            </div>
+            <div class="dropdown">
+                <a href="#">Careers &#x25BC;</a>
+
+            </div>
+            <div class="dropdown">
+                <a href="#">Contact Us &#x25BC;</a>
+
+            </div>
+            <a href="#" class="login">Login →</a>
+
+        </nav>
+    </div>
+
+    <header>
+        <div>
+            <div class="row">
+                <div class="col-md-2 vertical-text">
+                    <p>Facebook Twitter Instagram</p>
+                </div>
+                <div class="col-md-4 Build">
+                    <h1 style="font-weight: bold;">Building The Digital Universe</h1>
+                    <h4>With every client we serve, we bring forth a deep passion for creative problem-solving and digital innovations- that's what we deliver. We’ve Great minds at work for the best technologies to make digital easy and impactful.</h4>
+
+                </div>
+                <div class="col-md-6">
+                    <img src="Default.png">
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="content">
+                <h1 style="font-weight: bolder;">We craft digital strategies that turn your brand into a digital sensation</h1>
+                <br/>
+                <p class="intro">We are passionate about helping businesses thrive in the digital landscape. Our team of experts is dedicated to providing cutting-edge digital marketing solutions tailored to your unique needs.</p>
+                <p class="intro">With our proven strategies, we'll boost your online presence, engage your target audience, and drive real results.</p>
+            </div>
+
+            <div class="services">
+                <div class="service">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1_982)">
+                        <ellipse cx="30" cy="31.5" rx="30" ry="29.5" fill="#FD8BA0"/>
+                        <rect y="2" width="23" height="59" fill="#E4546E" fill-opacity="0.7"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_1_982">
+                            <rect width="60" height="60" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                    <div class="service-content">
+                        <h3>Define Clear Goals and Objectives</h3>
+                        <p>Our strategy begins with a crystal-clear roadmap. We work closely with you to define specific, measurable, & achievable goals.</p>
+                    </div>
+                </div>
+
+                <div class="service">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect y="1" width="60" height="21" fill="#A4E76F"/>
+                    <rect x="17" y="1" width="26" height="58" fill="#50B21D" fill-opacity="0.5"/>
+                </svg>
+                    <div class="service-content">
+                        <h3>Target Audience</h3>
+                        <p>We dive deep to understand your audience, forging connections that transform visitors into loyal customers.</p>
+                    </div>
+                </div>
+
+                <div class="service">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1_964)">
+                        <path d="M2.96875 -0.0585938H29.8942V59.2556H2.96875V-0.0585938Z" fill="#B266EE"/>
+                        <rect x="2.96875" y="37.3047" width="37.3632" height="30.8733" transform="rotate(-90 2.96875 37.3047)" fill="#D8B7FA" fill-opacity="0.7"/>
+                        <path d="M33.8406 37.3046C39.4327 37.3046 48.503 35.3364 52.4572 31.8329C56.4114 28.3294 58.6328 23.5777 58.6328 18.623C58.6328 13.6684 56.4114 8.91661 52.4572 5.41313C48.503 1.90964 39.4327 -0.058593 33.8406 -0.0585938V18.623V37.3046Z" fill="#D8B7FA" fill-opacity="0.7"/>
+                        <path d="M30.1052 37.0132L58.7812 59.2578L3.20114 59.2838L30.1052 37.0132Z" fill="#8B0EED" fill-opacity="0.6"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_1_964">
+                            <rect width="60" height="60" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                    <div class="service-content">
+                        <h3>Right Digital Channels</h3>
+                        <p>We're like online detectives, discovering where your customers are, and then we craft posts and ads that perfectly fit.</p>
+                    </div>
+                </div>
+
+                <div class="service">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 60H30V0L1 60Z" fill="#7ADFFF"/>
+                    <path d="M60 60H30V0L60 60Z" fill="#59BBDA"/>
+                </svg>
+                    <div class="service-content">
+                        <h3>Analytics and Reporting</h3>
+                        <p>We use analytics for precise campaign monitoring, tracking website traffic, engagement, and conversions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+
+
+
+
+
+        <div class="containers">
+            <div class="left">
+                <h1>TELL US <br> EVERY-THING</h1>
+                <p>Our Business Philosophy</p>
+                <p>We strive to unlock collective wisdom and go beyond what’s possible to grow together.</p>
+            </div>
+            <div class="right">
+                <form action="#" method="post">
+                    <div class="input-row">
+                        <div class="input-item">
+                            <input type="text" name="name" placeholder="Name*" required>
+                        </div>
+                        <div class="input-item">
+                            <input type="email" name="email" placeholder="Email*" required>
+                        </div>
+                    </div><br/>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <input type="text" name="phone" placeholder="Phone Number">
+                        </div>
+                        <div class="input-item">
+                            <input type="text" name="country" placeholder="Country*" required>
+                        </div>
+                    </div><br/>
+                    <div class="input-row">
+                        <div class="input-item">
+                            <input type="text" name="city" placeholder="City*" required>
+                        </div>
+                        <div class="input-item">
+                            <input type="text" name="company" placeholder="Company Name*" required>
+                        </div>
+                    </div><br/>
+                    <div class="input-item">
+                        <textarea name="message" placeholder="Message"></textarea>
+                    </div>
+                    <div class="input-item">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+    <footer class="footer">
+        <div class="column">
+            <h3>ULTIMEZ</h3>
+            <p>Lets Build The Future Together</p>
+            <p>Ultimez Technology, Industry Specific Software, Designing and Branding Solutions, Globally</p>
+        </div>
+        <div class="vertical-line"></div>
+        <!-- Add this line for the vertical line -->
+        <div class="column">
+            <ul>
+                <li><strong>Services</strong></li>
+                <li><a href="#">Technologies</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Case Studies</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Portfolio</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <ul>
+                <li><a href="#">Software Development</a></li>
+                <li><a href="#">Website Designing</a></li>
+                <li><a href="#">Digital Marketing</a></li>
+                <li><a href="#">App Development</a></li>
+                <li><a href="#">Branding</a></li>
+                <li><a href="#">Hire Resources</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Career</a></li>
+                <li><a href="#">Client Terminal</a></li>
+                <li><a href="#">Employee Login</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <p>In Association with<br><strong>ULTIMEZ LAB</strong></p>
+
+        </div>
+        <div class="bottom-bar">
+            <p>&copy; 2013-2023 Ultimez Technology. All Rights Reserved. Privacy Policy.</p>
+            <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Sitemap</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
